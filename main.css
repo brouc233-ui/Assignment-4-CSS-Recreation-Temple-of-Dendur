@@ -31,7 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 55px;
+    gap: clamp(48px, 9vw, 72px);
 }
 
 .temple {
@@ -228,10 +228,22 @@ body {
     outline-offset: 4px;
 }
 
+.water {
+    width: min(460px, calc(100vw - 48px));
+    height: 42px;
+    background:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.22) 2px, transparent 2px 11px, rgba(255, 255, 255, 0.15) 11px 13px, transparent 13px),
+        linear-gradient(to right, #829eaa 0 18%, #a8bdc1 18% 36%, #7799a8 36% 55%, #b8c8c5 55% 73%, #809eaa 73% 88%, #a7bbb9 88%);
+    border: 2px solid #647f8b;
+    box-shadow: 6px 0 0 #6e8993;
+    box-sizing: border-box;
+}
+
 .detail-links {
     display: flex;
     justify-content: center;
     gap: 28px;
+    margin-top: clamp(32px, 6vw, 48px);
 }
 
 .detail-links a {
@@ -246,7 +258,7 @@ body {
 }
 
 .detail-header {
-    margin-bottom: 36px;
+    margin-bottom: clamp(48px, 9vw, 72px);
     text-align: left;
 }
 
@@ -272,10 +284,10 @@ body {
 
 .detail-scene {
     display: flex;
-    min-height: 330px;
+    min-height: 390px;
     align-items: center;
     justify-content: center;
-    margin: 0 0 24px;
+    margin: 0 0 clamp(56px, 10vw, 80px);
     padding: 40px 24px;
     background: #f7f5f0;
     box-sizing: border-box;
@@ -321,12 +333,11 @@ body {
 
 .columns-detail-scene {
     gap: 64px;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .column-detail {
-    transform: scale(1.35);
-    transform-origin: bottom center;
+    flex: 0 1 auto;
 }
 
 .column-detail .capital {
@@ -405,15 +416,12 @@ body {
     }
 
     .detail-scene {
-        min-height: 280px;
-        padding: 28px 16px;
+        min-height: 340px;
+        padding: 24px 16px;
     }
 
     .columns-detail-scene {
         gap: 40px;
     }
 
-    .column-detail {
-        transform: scale(1.05);
-    }
 }
