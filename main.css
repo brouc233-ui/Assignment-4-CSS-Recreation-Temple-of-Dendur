@@ -49,26 +49,42 @@ body {
     height: 24px;
     background: #c8b99f;
     border: 2px solid #82735c;
+    box-shadow: 6px 0 0 #a99a80;
     box-sizing: border-box;
 }
 
 .wall {
     width: 70px;
     height: 230px;
-    background: #e6decf;
+    background-color: #e6decf;
+    background-image:
+        linear-gradient(to bottom, transparent 23px, rgba(130, 115, 92, 0.14) 23px),
+        linear-gradient(to right, transparent 47px, rgba(130, 115, 92, 0.12) 47px),
+        linear-gradient(to right, transparent 47px, rgba(130, 115, 92, 0.12) 47px);
+    background-size: 100% 24px, 48px 24px, 48px 24px;
+    background-position: 0 0, 0 0, 24px 12px;
     border: 2px solid #82735c;
+    box-shadow: 6px 0 0 #c6baa4;
     box-sizing: border-box;
 }
 
 .entrance {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
+    justify-content: center;
     width: 190px;
     height: 230px;
-    padding: 0 18px;
     background: #333;
     box-sizing: border-box;
+}
+
+.columns-link {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0 18px;
+    color: inherit;
+    text-decoration: none;
 }
 
 .column {
@@ -78,31 +94,88 @@ body {
 }
 
 .capital {
+    position: relative;
     width: 48px;
     height: 38px;
     background: #c8b99f;
     border: 2px solid #82735c;
+    box-shadow: 6px 0 0 #a99a80;
     box-sizing: border-box;
 }
 
 .shaft {
+    position: relative;
     width: 30px;
     height: 165px;
-    background: #f4f1ea;
+    background:
+        linear-gradient(to right,
+            transparent 5px,
+            rgba(130, 115, 92, 0.18) 6px,
+            transparent 7px,
+            transparent 13px,
+            rgba(130, 115, 92, 0.16) 14px,
+            transparent 15px,
+            transparent 22px,
+            rgba(130, 115, 92, 0.16) 23px,
+            transparent 24px),
+        #f4f1ea;
     border: 2px solid #82735c;
+    box-shadow: 6px 0 0 #c9c1b2;
     box-sizing: border-box;
+}
+
+.capital::before,
+.capital::after {
+    position: absolute;
+    left: -4px;
+    width: 52px;
+    height: 4px;
+    background: #b09f85;
+    border: 1px solid #82735c;
+    box-sizing: border-box;
+    content: "";
+}
+
+.capital::before {
+    top: 5px;
+}
+
+.capital::after {
+    bottom: 5px;
+}
+
+.shaft::after {
+    position: absolute;
+    right: -4px;
+    bottom: -6px;
+    left: -4px;
+    height: 5px;
+    background: #c8b99f;
+    border: 1px solid #82735c;
+    content: "";
 }
 
 .arch {
     position: relative;
+    display: block;
     width: 190px;
     height: 110px;
+    color: inherit;
+    text-decoration: none;
 }
 
 .arch-top {
+    position: relative;
     height: 32px;
-    background: #c8b99f;
+    background-color: #c8b99f;
+    background-image:
+        linear-gradient(to bottom, transparent 15px, rgba(130, 115, 92, 0.14) 15px),
+        linear-gradient(to right, transparent 47px, rgba(130, 115, 92, 0.12) 47px),
+        linear-gradient(to right, transparent 47px, rgba(130, 115, 92, 0.12) 47px);
+    background-size: 100% 16px, 48px 16px, 48px 16px;
+    background-position: 0 0, 0 0, 24px 8px;
     border: 2px solid #82735c;
+    box-shadow: 6px 0 0 #a99a80;
     box-sizing: border-box;
 }
 
@@ -111,8 +184,15 @@ body {
     bottom: 0;
     width: 48px;
     height: 78px;
-    background: #e6decf;
+    background-color: #e6decf;
+    background-image:
+        linear-gradient(to bottom, transparent 23px, rgba(130, 115, 92, 0.14) 23px),
+        linear-gradient(to right, transparent 47px, rgba(130, 115, 92, 0.12) 47px),
+        linear-gradient(to right, transparent 47px, rgba(130, 115, 92, 0.12) 47px);
+    background-size: 100% 24px, 48px 24px, 48px 24px;
+    background-position: 0 0, 0 0, 24px 12px;
     border: 2px solid #82735c;
+    box-shadow: 6px 0 0 #c6baa4;
     box-sizing: border-box;
 }
 
@@ -137,6 +217,152 @@ body {
     box-sizing: border-box;
 }
 
+.arch:hover,
+.columns-link:hover {
+    filter: brightness(1.06);
+}
+
+.arch:focus-visible,
+.columns-link:focus-visible {
+    outline: 3px solid #82735c;
+    outline-offset: 4px;
+}
+
+.detail-page {
+    max-width: 760px;
+}
+
+.detail-header {
+    margin-bottom: 36px;
+    text-align: left;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: #675b49;
+    font-size: 14px;
+}
+
+.detail-header h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.detail-header p,
+.detail-copy {
+    max-width: 560px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.detail-scene {
+    display: flex;
+    min-height: 330px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 24px;
+    padding: 40px 24px;
+    background: #f7f5f0;
+    box-sizing: border-box;
+}
+
+.arch-detail {
+    width: min(420px, 100%);
+    height: 240px;
+}
+
+.arch-detail .arch-top {
+    height: 72px;
+    border-width: 4px;
+    background-size: 100% 24px, 72px 24px, 72px 24px;
+    background-position: 0 0, 0 0, 36px 12px;
+}
+
+.arch-detail .arch-top::after {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    bottom: 14px;
+    left: 18px;
+    border: 1px solid rgba(130, 115, 92, 0.45);
+    content: "";
+}
+
+.arch-detail .arch-leg {
+    width: 84px;
+    height: 168px;
+    border-width: 3px;
+    background-size: 100% 28px, 58px 28px, 58px 28px;
+    background-position: 0 0, 0 0, 29px 14px;
+}
+
+.arch-detail .circle {
+    top: 14px;
+    width: 42px;
+    height: 42px;
+    border-width: 3px;
+    box-shadow: inset 0 0 0 5px rgba(130, 115, 92, 0.2);
+}
+
+.columns-detail-scene {
+    gap: 64px;
+    align-items: flex-end;
+}
+
+.column-detail {
+    transform: scale(1.35);
+    transform-origin: bottom center;
+}
+
+.column-detail .capital {
+    width: 72px;
+    height: 54px;
+    border-width: 3px;
+}
+
+.column-detail .capital::before,
+.column-detail .capital::after {
+    left: -5px;
+    width: 76px;
+    height: 6px;
+    border-width: 2px;
+}
+
+.column-detail .capital::before {
+    top: 7px;
+}
+
+.column-detail .capital::after {
+    bottom: 7px;
+}
+
+.column-detail .shaft {
+    width: 46px;
+    height: 210px;
+    border-width: 3px;
+    background-image:
+        linear-gradient(to right,
+            transparent 7px,
+            rgba(130, 115, 92, 0.2) 8px,
+            transparent 9px,
+            transparent 20px,
+            rgba(130, 115, 92, 0.2) 21px,
+            transparent 22px,
+            transparent 34px,
+            rgba(130, 115, 92, 0.2) 35px,
+            transparent 36px);
+}
+
+.column-detail .shaft::after {
+    right: -6px;
+    bottom: -8px;
+    left: -6px;
+    height: 8px;
+    border-width: 2px;
+}
+
 @media (max-width: 420px) {
     .header {
         text-align: left;
@@ -148,6 +374,27 @@ body {
 
     .entrance {
         width: 160px;
+    }
+
+    .columns-link {
         padding: 0 12px;
+    }
+
+    .detail-page {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .detail-scene {
+        min-height: 280px;
+        padding: 28px 16px;
+    }
+
+    .columns-detail-scene {
+        gap: 40px;
+    }
+
+    .column-detail {
+        transform: scale(1.05);
     }
 }
