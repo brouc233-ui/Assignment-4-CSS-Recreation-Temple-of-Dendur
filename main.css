@@ -228,6 +228,20 @@ body {
     outline-offset: 4px;
 }
 
+.detail-links {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: -32px;
+}
+
+.detail-links a {
+    color: #675b49;
+    font-size: 14px;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
+
 .detail-page {
     max-width: 760px;
 }
@@ -378,6 +392,13 @@ body {
 
     .columns-link {
         padding: 0 12px;
+    }
+
+    .detail-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-top: -32px;
     }
 
     .detail-page {
